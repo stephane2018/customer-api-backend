@@ -42,12 +42,13 @@ public class Main {
         customer.setEmail(request.email);
         customer.setAge(request.age);
         customerRepository.save(customer);
-        ;
+
 
     }
 
     @PutMapping("{id}")
-    public void updateCustomer (@PathVariable Integer id, @RequestBody NewCustomerRequest data ){
+    public void updateCustomer (@PathVariable Integer id,
+                                @RequestBody NewCustomerRequest data ){
         customerRepository.findById(id).map((custoner) -> {
             custoner.setAge(data.age);
             custoner.setEmail(data.email);
